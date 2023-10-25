@@ -4,9 +4,6 @@ import { config } from 'dotenv';
 
 config(); // dotenv config fn call.
 
-console.log(process.env.CLOUDINARY_API_KEY);
-console.log(process.env.CLOUDINARY_API_SECRET);
-
 const answer = await select({
   message: 'Select a CDN Provider To Deploy On',
   choices: [
