@@ -1,5 +1,4 @@
 import { select } from '@inquirer/prompts';
-import rawlist from '@inquirer/select';
 
 const answer = await select({
   message: 'Select a CDN Provider To Deploy On',
@@ -9,3 +8,13 @@ const answer = await select({
     { name: 'Other CDN', value: 'otn' },
   ],
 });
+
+function cloudinaryCDN(){
+
+    
+}
+
+function cloudflareCDN(){
+
+
+} 
