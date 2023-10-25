@@ -4,7 +4,7 @@ import { config } from 'dotenv';
 
 config(); // dotenv config fn call.
 
-const filename = process.argv
+const filename = process.argv[2]; // access the filename as a command-line argument
 console.log(filename);
 
 const answer = await select({
