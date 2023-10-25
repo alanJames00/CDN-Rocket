@@ -4,8 +4,7 @@ import { config } from 'dotenv';
 
 config(); // dotenv config fn call.
 
-const filename = process.argv[2]; // access the filename as a command-line argument
-console.log(filename);
+const filename = process.argv[2]; // access the filename or filepath as a command-line argument
 
 const answer = await select({
   message: 'Select a CDN Provider To Deploy On',
@@ -39,7 +38,7 @@ function cloudinaryCDN(){
       
       // Uploader Function
       cloudinary.uploader
-        .upload()
+        .upload(filename)
         .then(result=>console.log(result));
 
 }
