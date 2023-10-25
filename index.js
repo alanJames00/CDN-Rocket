@@ -9,8 +9,8 @@ const filename = process.argv[2]; // access the filename or filepath as a comman
 const answer = await select({
   message: 'Select a CDN Provider To Deploy On',
   choices: [
-    { name: 'Cloudflare CDN', value: 'clf' },
-    { name: 'Cloudinary CDN', value: 'cln' },
+    { name: 'Cloudflare CDN', value: 'cloudflare' },
+    { name: 'Cloudinary CDN', value: 'cloudinary' },
     { name: 'Other CDN', value: 'otn' },
     { name: 'Exit Program', value: 'exit' },
   ],
@@ -19,12 +19,23 @@ const answer = await select({
 switch(answer){
 
     case 'exit':
-        console.log('Exiting the Program...');
+        programExit();
         break;
-    case 'cln':
+    case 'cloudinary':
         cloudinaryCDN();
+        programExit();
+        break;
+    case 'cloudflare':
+        cloudflareCDN();
+        programExit();
         break;
 }
+
+function programExit(){
+    // Function to handle program exit
+    console.log('Exiting the Program...');
+}
+
 
 function cloudinaryCDN(){
 
