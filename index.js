@@ -4,6 +4,9 @@ import { config } from 'dotenv';
 
 config(); // dotenv config fn call.
 
+const filename = process.argv
+console.log(filename);
+
 const answer = await select({
   message: 'Select a CDN Provider To Deploy On',
   choices: [
@@ -20,7 +23,8 @@ switch(answer){
         console.log('Exiting the Program...');
         break;
     case 'cln':
-        console.log("cdn done");
+        cloudinaryCDN();
+        break;
 }
 
 function cloudinaryCDN(){
@@ -28,13 +32,15 @@ function cloudinaryCDN(){
     // The cloudinary config is only done if this function is called
     cloudinary.config({ 
         cloud_name: 'dkvokrqkc',
-        api_key: '874837483274837', 
-        api_secret: 'a676b67565c6767a6767d6767f676fe1',
+        api_key: process.env.CLOUDINARY_API_KEY, 
+        api_secret: process.env.CLOUDINARY_API_SECRET,
         secure: true
       });
-
-
-
+      
+      // Uploader Function
+      cloudinary.uploader
+        .upload()
+        .then(result=>console.log(result));
 
 }
 
