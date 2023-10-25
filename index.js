@@ -2,9 +2,10 @@ import { select } from '@inquirer/prompts';
 import { v2 as cloudinary } from 'cloudinary';
 import { config } from 'dotenv';
 
-config(); // dotenv config fn
+config(); // dotenv config fn call.
 
-console.log(process.env.TEST);
+console.log(process.env.CLOUDINARY_API_KEY);
+console.log(process.env.CLOUDINARY_API_SECRET);
 
 const answer = await select({
   message: 'Select a CDN Provider To Deploy On',
@@ -12,8 +13,18 @@ const answer = await select({
     { name: 'Cloudflare CDN', value: 'clf' },
     { name: 'Cloudinary CDN', value: 'cln' },
     { name: 'Other CDN', value: 'otn' },
+    { name: 'Exit Program', value: 'exit' },
   ],
 });
+
+switch(answer){
+
+    case 'exit':
+        console.log('Exiting the Program...');
+        break;
+    case 'cln':
+        console.log("cdn done");
+}
 
 function cloudinaryCDN(){
 
