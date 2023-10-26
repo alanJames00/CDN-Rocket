@@ -29,7 +29,6 @@ switch(answer){
         break;
     case 'cloudinary':
         cloudinaryCDN();
-        programExit();
         break;
     case 'cloudflare':
         cloudflareCDN();
@@ -44,6 +43,7 @@ function programExit(){
 
 
 function cloudinaryCDN(){
+    
 
     // The cloudinary config is only done if this function is called
     cloudinary.config({ 
@@ -53,14 +53,16 @@ function cloudinaryCDN(){
         secure: true
       });
       
-      spinner.start();
+
       // Uploader Function
+      spinner.start();
+
       cloudinary.uploader
         .upload(filename)
         .then((result) => {
           spinner.stop(); // stop spinner-cli after upload
           console.log(result);
-        });
+        }).then(() => {programExit()})
 
 }
 
