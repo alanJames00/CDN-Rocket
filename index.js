@@ -3,9 +3,10 @@ import { v2 as cloudinary } from 'cloudinary';
 import { config } from 'dotenv';
 import { Spinner } from 'cli-spinner';
 
+
+// Configuration for cli-spinner-gui
 var spinner = new Spinner(` %s Uploading The File To CDN`);
 spinner.setSpinnerString( "⣾⣽⣻⢿⡿⣟⣯⣷");
-spinner.start();
 
 config(); // dotenv config fn call.
 
@@ -52,10 +53,14 @@ function cloudinaryCDN(){
         secure: true
       });
       
+      spinner.start();
       // Uploader Function
       cloudinary.uploader
         .upload(filename)
-        .then(result=>console.log(result));
+        .then((result) => {
+          spinner.stop(); // stop spinner-cli after upload
+          console.log(result);
+        });
 
 }
 
