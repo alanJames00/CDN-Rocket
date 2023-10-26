@@ -1,6 +1,11 @@
 import { select } from '@inquirer/prompts';
 import { v2 as cloudinary } from 'cloudinary';
 import { config } from 'dotenv';
+import { Spinner } from 'cli-spinner';
+
+var spinner = new Spinner('processing.. %s');
+spinner.setSpinnerString('|/-\\');
+spinner.start();
 
 config(); // dotenv config fn call.
 
