@@ -17,7 +17,7 @@ const answer = await select({
   choices: [
     { name: 'Cloudflare CDN', value: 'cloudflare' },
     { name: 'Cloudinary CDN', value: 'cloudinary' },
-    { name: 'Other CDN', value: 'otn' },
+    { name: 'Other CDNs', value: 'othercdns' },
     { name: 'Exit Program', value: 'exit' },
   ],
 });
@@ -68,5 +68,5 @@ function cloudinaryCDN(){
 
 function cloudflareCDN(){
 
-
+  console.log('Under Development!!');
 } 
