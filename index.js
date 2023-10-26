@@ -3,8 +3,8 @@ import { v2 as cloudinary } from 'cloudinary';
 import { config } from 'dotenv';
 import { Spinner } from 'cli-spinner';
 
-var spinner = new Spinner('processing.. %s');
-spinner.setSpinnerString('|/-\\');
+var spinner = new Spinner(` %s Uploading The File To CDN`);
+spinner.setSpinnerString( "⣾⣽⣻⢿⡿⣟⣯⣷");
 spinner.start();
 
 config(); // dotenv config fn call.
